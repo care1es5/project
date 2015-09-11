@@ -1,4 +1,4 @@
-#Krypton 4
+#Krypton 3
 
 ```
 krypton2@melinda:/krypton/krypton2$ cat krypton3
