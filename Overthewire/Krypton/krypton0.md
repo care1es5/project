@@ -6,6 +6,7 @@ Welcome to Krypton! The first level is easy. The following string encodes the pa
 S1JZUFRPTklTR1JFQVQ=
 ```
 
+In python:
 ```
 >>"S1JZUFRPTklTR1JFQVQ=".decode('base64')
 'KRYPTONISGREAT'
