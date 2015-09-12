@@ -23,4 +23,4 @@ In /s3cr3t, there is a file "users.txt".
 
 Inside of that, there is our password:
 
-![Natas 3](Images/Natas3-3.png)
+![Natas 3](Images/Natas3-4.png)
