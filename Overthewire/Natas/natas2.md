@@ -6,9 +6,9 @@ Checeking the source code:
 
 ![Natas 2](Images/Natas2-1.png)
 
-Hm..It seems like there is a hidden images and it tells you the image path.
+Hm..hidden image...and it also tells you the image path.
 
-Lets go to the directory and see if anything is there:
+Lets go to the directory and see if there is anything useful:
 
 ![Natas 2](Images/Natas2-2.png)
 
