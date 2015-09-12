@@ -13,7 +13,7 @@ When you login in with above credentials, you will see this:
 
 ![Natas 0-1](Images/Natas0-1.png)
 
-First thing I do when there isnt anything display is to check the source code
+First thing I do whenever there isnt anything on the page is to check the source code
 
 ![Natas 0-2](Images/Natas0-2.png)
 
