@@ -17,7 +17,7 @@ When you go to /robots.txt, you will see /s3cr3t is disallowed:
 
 ![Natas 3](Images/Natas3-2.png)
 
-In /s3cr3t, there is users.txt. 
+In /s3cr3t, there is a file "users.txt". 
 
 ![Natas 3](Images/Natas3-3.png)
 
