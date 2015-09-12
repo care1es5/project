@@ -11,16 +11,16 @@ In Safari, if you enable developer setting, you can do this:
 
 ![Natas 1](Images/Natas1-2.png)
 
-In Chrome, you can access view source code until view:
+In Chrome, you can access "view source code":
 
 ![Natas 1](Images/Natas1-1.png)
 
-you can use curl:
+you can also use curl:
 
 curl --user user:password url
 
-There is the password for the next level:
-
+There is our password:
+ 
 ![Natas 1](Images/Natas1-3.png)
 
 
