@@ -9,7 +9,7 @@ Checking the source code:
 ![Natas 3](Images/Natas3-1.png)
 
 
-It says "even google will not find this" which means it included "disallowed" facotr in robots txt.
+It says "even google will not find this" which means it included "disallowed" factor in robots txt.
 
 For more information about robots.txt: <http://www.robotstxt.org/robotstxt.html>
 
