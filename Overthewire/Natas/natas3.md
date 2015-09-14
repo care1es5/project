@@ -4,7 +4,7 @@ Similar to last one, there is nothing on the page :(
 
 ![Natas 3](Images/Natas3-0.png)
 
-Checking the soruce code:
+Checking the source code:
 
 ![Natas 3](Images/Natas3-1.png)
 
