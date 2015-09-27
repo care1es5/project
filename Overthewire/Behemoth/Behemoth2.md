@@ -7,3 +7,7 @@ Also, I realized that it touched a file. Since there was no checking for the acu
 
 
 ![Behemoth 2](Photos/Behemoth2.png)
+
+In my touch file:
+
+![Behemoth 2](Photos/Behemoth2-1.png)
