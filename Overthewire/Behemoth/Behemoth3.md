@@ -50,7 +50,7 @@ aaaand goodbye again.
 (gdb)
 ```
 
-Oh dear printfl,!Now lets figure out where our buffer is.
+Oh dear printf! Now lets figure out where our buffer is.
 
 ```
 (gdb) r
@@ -127,7 +127,7 @@ Here is the final payload:
 
 ![Behemoth 3](Photos/Behemoth3.png) 
 
-*To find the address to jump to, I used the paylaod by just writing 6 and 7 characters respecitvely and chose middle of 'A' (junk)
+*To find the address to jump to, I used the paylaod by just writing 6 and 7 characters respecitvely and chose middle of A (junk)
 *To write two bytes at a time, I used $hn for short write and simple math (literally typing 0x + last twobytes into python shell and same for higher bytes) 
 
 ![Behemoth 3](Photos/Behemoth3-1.png) 
