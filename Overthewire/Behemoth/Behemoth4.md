@@ -59,7 +59,7 @@ Dump of assembler code for function main:
 End of assembler dump.
 (gdb)
 ```
-Hm...There are some function to look at.
+Hm....
 
 ```
 behemoth4@melinda:/behemoth$ objdump -R behemoth4
