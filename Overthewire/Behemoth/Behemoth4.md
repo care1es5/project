@@ -177,13 +177,13 @@ write(1, "PID not found!\n", 15PID not found!
 exit_group(0)                           = ?
 +++ exited with 0 +++
 ```
-The process id constantly changes. To solve it, I thought of making a symlink with password and /tmp/PID where PID is randomely picked PID and run it until it has the same process id as the file name.
+The process id was changed. To solve it, I thought of making a symlink with password and /tmp/PID where PID is randomely picked PID and run it until it has the same process id as the file name.
 
 ```
 behemoth4@melinda:/tmp$ ln -s /etc/behemoth_pass/behemoth5 /tmp/32072
 ```
 
-At first I tried to write bash script to get the PID and break the loop if the pid matches the file name.... But then it failed because it stopped but did not print the password. (Probably I somehow had to pasue the program to give enough time to make the symlink and resume but I do not exactly know why :( )
+At first I tried to write bash script to get the PID and break the loop if the pid matches the file name.... But then it failed because it stopped but did not print the password. (Probably I somehow had to pasue the program to give enough time to make the symlink and resume but I do not know exactly know why :( )
  
 So after many hours of research, I found out that I could directly do this in commandline.
 
