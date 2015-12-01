@@ -4,7 +4,7 @@
 
 Nothing much when you first open it up in Ida. 
 
-It prints out Reversing.Kr Easy ELF to the screen and makes a call to two functions:
+It prints out Reversing.Kr Easy ELF to the screen and makes call to two functions:
 * call sub_8048434
 * call sub_8048451
 
