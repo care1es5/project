@@ -1,6 +1,6 @@
 #Easy-ELF
 
-![Easy-ELF](Images/Easy-ELF_1)
+![Easy-ELF](Images/Easy-ELF_1.png)
 
 Nothing much when you first open it up in Ida. 
 
@@ -12,9 +12,9 @@ sub_8048434 doesnt do much other than getting the input and stores in eax.
 
 sub_8048451 is the function that we want to pay attnetion to.
 
-![Easy-ELF_2](Images/Easy-ELF_2)
+![Easy-ELF_2](Images/Easy-ELF_2.png)
 
-![Easy-ELF_3](Images/Easy-ELF_3)
+![Easy-ELF_3](Images/Easy-ELF_3.png)
 
 Notice it does some calculation on each character and compare against specific value. 
 
@@ -47,7 +47,7 @@ Fifth char : 88 = 'X'
 
 Test
 
-![Easy-ELF_4](Images/Easy-ELF_4)
+![Easy-ELF_4](Images/Easy-ELF_4.png)
 
 
 
