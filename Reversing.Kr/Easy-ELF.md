@@ -23,6 +23,7 @@ Known:
 * comparing lower 8 bit (al) to specific value
 
 From this point, all you need to do is 
+```
 movzx   eax, ds:byte_804A021
 cmp     al, 31h
 Second char : 0x31 = '1'
@@ -44,7 +45,7 @@ cmp     al, 88
 Fifth char : 88 = 'X'
 
 'L1NUX'
-
+```
 Test
 
 ![Easy-ELF_4](Images/Easy-ELF_4.png)
