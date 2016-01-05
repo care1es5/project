@@ -8,6 +8,8 @@ First challenge is very simple :)
 
 Hint: it would be helpful to run man ssh on your terminal :)
 
+Note:
+*All the bandit stuff on my git is not intended to reveal solutions. It is only meant to help the beginners(more of reference).
  
 
 
