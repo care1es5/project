@@ -1,0 +1,49 @@
+[----------------------------------registers-----------------------------------]
+RAX: 0x7fffffffdab0 ("aaaaaaa\n")
+RBX: 0x0
+RCX: 0x7961536f74746157 ('WattoSay')
+RDX: 0x7fffffffda50 ("WattoSays\n")
+RSI: 0x7fffffffda50 ("WattoSays\n")
+RDI: 0x7fffffffdab0 ("aaaaaaa\n")
+RBP: 0x7fffffffda80 --> 0x7fffffffdb40 --> 0x555555554d90 (<__libc_csu_init>:   push   r15)
+RSP: 0x7fffffffda40 --> 0x7fffffffdab0 ("aaaaaaa\n")
+RIP: 0x555555554bca (<_Z9passCheckPc+120>:      call   0x5555555548d0 <strcmp@plt>)
+R8 : 0x555555768e78 --> 0x0
+R9 : 0x7ffff7fe8d80 (0x00007ffff7fe8d80)
+R10: 0x555555757010 --> 0x0
+R11: 0x7ffff780a3c0 --> 0xfff074f0fff074e0
+R12: 0x555555554920 (<_start>:  xor    ebp,ebp)
+R13: 0x7fffffffdc20 --> 0x1
+R14: 0x0
+R15: 0x0
+EFLAGS: 0x206 (carry PARITY adjust zero sign trap INTERRUPT direction overflow)
+[-------------------------------------code-------------------------------------]
+   0x555555554bc0 <_Z9passCheckPc+110>: mov    rax,QWORD PTR [rbp-0x38]
+   0x555555554bc4 <_Z9passCheckPc+114>: mov    rsi,rdx
+   0x555555554bc7 <_Z9passCheckPc+117>: mov    rdi,rax
+=> 0x555555554bca <_Z9passCheckPc+120>: call   0x5555555548d0 <strcmp@plt>
+   0x555555554bcf <_Z9passCheckPc+125>: test   eax,eax
+   0x555555554bd1 <_Z9passCheckPc+127>: jne    0x555555554bda <_Z9passCheckPc+136>
+   0x555555554bd3 <_Z9passCheckPc+129>: mov    eax,0x1
+   0x555555554bd8 <_Z9passCheckPc+134>: jmp    0x555555554bf2 <_Z9passCheckPc+160>
+Guessed arguments:
+arg[0]: 0x7fffffffdab0 ("aaaaaaa\n")
+arg[1]: 0x7fffffffda50 ("WattoSays\n")
+arg[2]: 0x7fffffffda50 ("WattoSays\n")
+[------------------------------------stack-------------------------------------]
+0000| 0x7fffffffda40 --> 0x7fffffffdab0 ("aaaaaaa\n")
+0008| 0x7fffffffda48 --> 0x7fffffffdab0 ("aaaaaaa\n")
+0016| 0x7fffffffda50 ("WattoSays\n")
+0024| 0x7fffffffda58 --> 0xa73 ('s\n')
+0032| 0x7fffffffda60 --> 0x0
+0040| 0x7fffffffda68 --> 0x7ffff76d9b00 (<_IO_new_fgetpos+432>: lea    rdi,[rdx])
+0048| 0x7fffffffda70 --> 0x0
+0056| 0x7fffffffda78 --> 0x543a05a820858900
+[------------------------------------------------------------------------------] blue
+Legend: code, data, rodata, value
+
+Breakpoint 1, 0x0000555555554bca in passCheck(char*) ()
+
+
+answer:WattoSays
+flag:gigem{Y0urBreakpo1nt5Won7Work0nMeOnlyMon3y}
